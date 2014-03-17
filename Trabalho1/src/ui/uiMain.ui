@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>305</width>
+    <width>320</width>
     <height>193</height>
    </rect>
   </property>
@@ -36,7 +36,17 @@
            </widget>
           </item>
           <item>
-           <widget class="QDoubleSpinBox" name="doubleSpinBoxX"/>
+           <widget class="QDoubleSpinBox" name="doubleSpinBoxX">
+            <property name="decimals">
+             <number>3</number>
+            </property>
+            <property name="minimum">
+             <double>-99.989999999999995</double>
+            </property>
+            <property name="singleStep">
+             <double>0.100000000000000</double>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -50,7 +60,17 @@
            </widget>
           </item>
           <item>
-           <widget class="QDoubleSpinBox" name="doubleSpinBoxY"/>
+           <widget class="QDoubleSpinBox" name="doubleSpinBoxY">
+            <property name="decimals">
+             <number>3</number>
+            </property>
+            <property name="minimum">
+             <double>-99.989999999999995</double>
+            </property>
+            <property name="singleStep">
+             <double>0.100000000000000</double>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -64,7 +84,17 @@
            </widget>
           </item>
           <item>
-           <widget class="QDoubleSpinBox" name="doubleSpinBoxZ"/>
+           <widget class="QDoubleSpinBox" name="doubleSpinBoxZ">
+            <property name="decimals">
+             <number>3</number>
+            </property>
+            <property name="minimum">
+             <double>-99.989999999999995</double>
+            </property>
+            <property name="singleStep">
+             <double>0.100000000000000</double>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -75,12 +105,22 @@
         <item>
          <widget class="QLabel" name="label_5">
           <property name="text">
-           <string>Força (C):</string>
+           <string>Força (uC):</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QDoubleSpinBox" name="doubleSpinBoxForce"/>
+         <widget class="QDoubleSpinBox" name="doubleSpinBoxForce">
+          <property name="decimals">
+           <number>3</number>
+          </property>
+          <property name="minimum">
+           <double>-99.989999999999995</double>
+          </property>
+          <property name="singleStep">
+           <double>0.100000000000000</double>
+          </property>
+         </widget>
         </item>
         <item>
          <spacer name="horizontalSpacer">
@@ -124,7 +164,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>305</width>
+     <width>320</width>
      <height>27</height>
     </rect>
    </property>

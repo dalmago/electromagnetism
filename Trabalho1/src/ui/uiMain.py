@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'uiMain.ui'
 #
-# Created: Sat Mar 15 22:46:50 2014
+# Created: Mon Mar 17 09:07:33 2014
 #      by: PyQt4 UI code generator 4.10.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,7 +26,7 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(305, 193)
+        MainWindow.resize(320, 193)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.gridLayout = QtGui.QGridLayout(self.centralwidget)
@@ -44,6 +44,9 @@ class Ui_MainWindow(object):
         self.label_2.setObjectName(_fromUtf8("label_2"))
         self.horizontalLayout_3.addWidget(self.label_2)
         self.doubleSpinBoxX = QtGui.QDoubleSpinBox(self.centralwidget)
+        self.doubleSpinBoxX.setDecimals(3)
+        self.doubleSpinBoxX.setMinimum(-99.99)
+        self.doubleSpinBoxX.setSingleStep(0.1)
         self.doubleSpinBoxX.setObjectName(_fromUtf8("doubleSpinBoxX"))
         self.horizontalLayout_3.addWidget(self.doubleSpinBoxX)
         self.verticalLayout.addLayout(self.horizontalLayout_3)
@@ -53,6 +56,9 @@ class Ui_MainWindow(object):
         self.label_3.setObjectName(_fromUtf8("label_3"))
         self.horizontalLayout_2.addWidget(self.label_3)
         self.doubleSpinBoxY = QtGui.QDoubleSpinBox(self.centralwidget)
+        self.doubleSpinBoxY.setDecimals(3)
+        self.doubleSpinBoxY.setMinimum(-99.99)
+        self.doubleSpinBoxY.setSingleStep(0.1)
         self.doubleSpinBoxY.setObjectName(_fromUtf8("doubleSpinBoxY"))
         self.horizontalLayout_2.addWidget(self.doubleSpinBoxY)
         self.verticalLayout.addLayout(self.horizontalLayout_2)
@@ -62,6 +68,9 @@ class Ui_MainWindow(object):
         self.label_4.setObjectName(_fromUtf8("label_4"))
         self.horizontalLayout.addWidget(self.label_4)
         self.doubleSpinBoxZ = QtGui.QDoubleSpinBox(self.centralwidget)
+        self.doubleSpinBoxZ.setDecimals(3)
+        self.doubleSpinBoxZ.setMinimum(-99.99)
+        self.doubleSpinBoxZ.setSingleStep(0.1)
         self.doubleSpinBoxZ.setObjectName(_fromUtf8("doubleSpinBoxZ"))
         self.horizontalLayout.addWidget(self.doubleSpinBoxZ)
         self.verticalLayout.addLayout(self.horizontalLayout)
@@ -72,6 +81,9 @@ class Ui_MainWindow(object):
         self.label_5.setObjectName(_fromUtf8("label_5"))
         self.verticalLayout_2.addWidget(self.label_5)
         self.doubleSpinBoxForce = QtGui.QDoubleSpinBox(self.centralwidget)
+        self.doubleSpinBoxForce.setDecimals(3)
+        self.doubleSpinBoxForce.setMinimum(-99.99)
+        self.doubleSpinBoxForce.setSingleStep(0.1)
         self.doubleSpinBoxForce.setObjectName(_fromUtf8("doubleSpinBoxForce"))
         self.verticalLayout_2.addWidget(self.doubleSpinBoxForce)
         spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
@@ -89,7 +101,7 @@ class Ui_MainWindow(object):
         self.gridLayout.addLayout(self.horizontalLayout_4, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtGui.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 305, 27))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 320, 27))
         self.menubar.setObjectName(_fromUtf8("menubar"))
         self.menuMenu = QtGui.QMenu(self.menubar)
         self.menuMenu.setObjectName(_fromUtf8("menuMenu"))
@@ -109,7 +121,7 @@ class Ui_MainWindow(object):
         self.label_2.setText(_translate("MainWindow", "X:", None))
         self.label_3.setText(_translate("MainWindow", "Y:", None))
         self.label_4.setText(_translate("MainWindow", "Z:", None))
-        self.label_5.setText(_translate("MainWindow", "Força (C):", None))
+        self.label_5.setText(_translate("MainWindow", "Força (uC):", None))
         self.pushButtonOk.setText(_translate("MainWindow", "Ok", None))
         self.pushButtonPlot.setText(_translate("MainWindow", "Plotar", None))
         self.menuMenu.setTitle(_translate("MainWindow", "Menu", None))

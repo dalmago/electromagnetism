@@ -17,6 +17,8 @@ import sys, os
 from ui.uiMain import Ui_MainWindow
 from ui.uiPlot import Ui_Plot
 
+from plot.matplotlibPlot import MatplotlibPlot
+
 from actions.actionsPlot import ActionsPlot
 
 class Runner(object):
@@ -30,7 +32,11 @@ class Runner(object):
                 self.uiPlot = Ui_Plot()
                 self.uiPlot.setupUi(Plot)
 
-                self.actionsPlot = ActionsPlot(self.uiMain, self.uiPlot, MainWindow, Plot)
+                self.matplotlibPlot = MatplotlibPlot(\
+                        self.uiPlot.figura)
+
+                self.actionsPlot = ActionsPlot(self.uiMain,\
+                         MainWindow, Plot, self.matplotlibPlot)
                 #self.fig = plt.figure()
                 #self.ax = self.fig.add_subplot(111, projection='3d')
 

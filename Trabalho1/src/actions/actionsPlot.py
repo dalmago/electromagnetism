@@ -12,8 +12,8 @@
 #
 
 from PyQt4 import QtCore
-from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
-import matplotlib.pyplot as plt
+import math
+import numpy as np
 
 #try:
     #_fromUtf8 = QtCore.QString.fromUtf8
@@ -30,19 +30,20 @@ import matplotlib.pyplot as plt
         #return QtGui.QApplication.translate(context, text, disambig)
 
 class ActionsPlot(object):
-        def __init__(self, uiMain, uiPlot, mainWindow, Plot):
+        def __init__(self, uiMain, mainWindow, Plot, matplotlibPlot):
                 self.uiMain = uiMain
-                self.uiPlot = uiPlot
                 self.mainWindow = mainWindow
                 self.Plot = Plot
+                self.matplotlibPlot = matplotlibPlot
 
                 self.connectSlots()
-                self.setupPlotArea()
 
-        def setupPlotArea(self):
-                self.fig = plt.figure()
-                self.canvas = FigureCanvas(self.fig)
-                self.uiPlot.figura.addWidget(self.canvas)
+                self.k0= 9*10**9
+
+                #self.X = [0.4, 0, 1]
+                #self.Y = [-0.3, 0.5, 1.3]
+                #self.Z = [0.6, 0.24, 1]
+                #self.cargas = [8, 9, 10]
 
                 self.X = []
                 self.Y = []
@@ -55,10 +56,76 @@ class ActionsPlot(object):
 
         def addCharge(self):
                 self.X.append(self.uiMain.doubleSpinBoxX.value())
+                #self.uiMain.doubleSpinBoxX.cleanText()
                 self.Y.append(self.uiMain.doubleSpinBoxY.value())
+                #self.uiMain.doubleSpinBoxY.cleanText()
                 self.Z.append(self.uiMain.doubleSpinBoxZ.value())
+                #self.uiMain.doubleSpinBoxZ.cleanText()
                 self.cargas.append(self.uiMain.doubleSpinBoxForce.value())
+                #self.uiMain.doubleSpinBoxForce.cleanText()
 
         def plot(self):
                 self.mainWindow.close()
+                self.matplotlibPlot.plotCharge\
+                        (self.X, self.Y, self.Z, self.cargas)
+
+                self.calculateForces()
+                self.matplotlibPlot.plotAxis()
                 self.Plot.show()
+
+        def calculateForces(self):
+                #self.forca = []
+                for i in range (len(self.X)):
+                        #resultante = []
+                        somatorio = np.array([0,0,0])
+                        for j in range (len(self.X)):
+                                if i != j:
+                                        print ("\nCarga %d em %d" %(i,j))
+                                        #print ("em %d" %(j))
+                                        vector = np.array([self.X[j]-self.X[i], \
+                                                self.Y[j]-self.Y[i], \
+                                                self.Z[j]-self.Z[i]])
+                                        modulo = math.sqrt((vector[0]**2)+(vector[1]**2)+\
+                                                (vector[2]**2))
+                                        unitario = np.array([float(vector[0]/modulo), \
+                                                float(vector[1]/modulo), float(vector[2]/\
+                                                modulo)])
+                                        print ("unitario")
+                                        print (unitario)
+
+                                        valor = self.k0*(self.cargas[i]*10**(-6))*\
+                                                (self.cargas[j]*10**(-6))/ \
+                                                (modulo**3)
+                                        final = unitario*valor
+
+                                        somatorio = somatorio + final
+
+                                        print ("final")
+                                        print (final)
+                                        self.matplotlibPlot.ax.plot(\
+                                                [self.X[j], self.X[j]+final[0]],\
+                                                [self.Y[j], self.Y[j]+final[1]],\
+                                                [self.Z[j], self.Z[j]+final[2]], 'r', linewidth=2)
+
+                        print ("resultante")
+                        print (somatorio)
+                        self.matplotlibPlot.ax.plot(\
+                                [self.X[i], self.X[i]+somatorio[0]],\
+                                [self.Y[i], self.Y[i]+somatorio[1]],\
+                                [self.Z[i], self.Z[i]+somatorio[2]], 'g', linewidth=2)
+
+                                        #print (self.X[j]+final[0])
+                                        #print (self.Y[j]+final[0])
+                                        #print (self.Z[j]+final[0])
+
+                        """resultante.append((self.k0*\
+                                                (self.cargas[i]*10**(-6))*\
+                                                (self.cargas[j]*10**(-6)))/ \
+                                                ((self.X[i]-self.X[j])**2+\
+                                                (self.Y[i]-self.Y[j])**2+\
+                                                (self.Z[i]-self.Z[j])**2)**(1.5))"""
+                        #final = 0
+                        #for k in range (len(resultante)):
+                                #final = final+(resultante[k])**2
+                        #self.forca.append(math.sqrt(final))
+
