@@ -3,9 +3,9 @@
 
 #"THE BEER-WARE LICENSE" (Revision 42):
 #
-#<matheusdalmago10@hotmail.com> wrote this file. As long as you reta#
-#notice you can do whatever you want with this stuff. If we meet som#
-#and you think this stuff is worth it, you can buy me a beer in retu#
+#<matheusdalmago10@hotmail.com> wrote this file. As long as you retain this
+#notice you can do whatever you want with this stuff. If we meet some day,
+#and you think this stuff is worth it, you can buy me a beer in return.
 #
 #Created: Mar 11 2014
 #       by: Matheus Dal Mago
