@@ -24,27 +24,25 @@ class ActionsPlot(object):
 
                 self.connectSlots()
 
-                self.k0= 9*10**9
-
-                self.X = [0.4, 0]
-                self.Y = [-0.3, 0.5]
-                self.Z = [0.6, 0.24]
-                self.cargas = [4, 9]
+                #self.X = [0.4, 0]
+                #self.Y = [-0.3, 0.5]
+                #self.Z = [0.6, 0.24]
+                #self.cargas = [4, 9]
 
                 #self.X = [0.4, 0, 0.2]
                 #self.Y = [-0.3, 0.5, 0.2]
                 #self.Z = [0.6, 0.24, 0.1]
-                #self.cargas = [4, 9, 2]
+                #self.cargas = [-4, 9, 2]
 
                 #self.X = [0, 0.4, 0, 0.4]
                 #self.Y = [0.3, 0.3, 0, 0]
                 #self.Z = [0, 0, 0, 0]
                 #self.cargas = [-10, 5, 12, -3]
 
-                #self.X = []
-                #self.Y = []
-                #self.Z = []
-                #self.cargas = []
+                self.X = []
+                self.Y = []
+                self.Z = []
+                self.cargas = []
 
         def connectSlots(self):
                 QtCore.QObject.connect(self.uiMain.pushButtonOk, QtCore.SIGNAL("clicked()"), self.addCharge)
@@ -72,7 +70,6 @@ class ActionsPlot(object):
         def calculateForces(self):
                 for i in range (len(self.X)):
                         somatorio = np.array([0,0,0])
-                        moduloFinal = 0
                         for j in range (len(self.X)):
                                 if i != j:
                                         print ("\nCarga %d em %d" %(j, i))
@@ -87,40 +84,55 @@ class ActionsPlot(object):
                                         print ("unitario")
                                         print (unitario)
 
-                                        valor = self.k0*(self.cargas[i]*10**(-6))*\
+                                        valor = (9*10**9)*(self.cargas[i]*10**(-6))*\
                                                 (self.cargas[j]*10**(-6))/ \
                                                 (modulo**2)
                                         final = unitario*valor
 
-                                        moduloFinal += (final[0]**2+final[1]**2+final[2]**2)
                                         print ("intensidade")
                                         print (math.sqrt(final[0]**2+final[1]**2+final[2]**2))
 
+                                        """
+                                                Soma de cada coordenada dos vetores
+                                                para gerar o resultante
+                                        """
                                         somatorio = somatorio + final
 
-                                        #print ("final")
-                                        #print (final)
+                                        """
+                                                Plota os vetores das forças
+                                        """
                                         self.matplotlibPlot.ax.plot(\
                                                 [self.X[i], self.X[i]+final[0]],\
                                                 [self.Y[i], self.Y[i]+final[1]],\
-                                                [self.Z[i], self.Z[i]+final[2]], 'r', linewidth=2)
+                                                [self.Z[i], self.Z[i]+final[2]], 'r', linewidth=1)
 
                                         self.matplotlibPlot.canvas.draw()
 
 
                         print ("\nresultante carga %d" %(i))
                         print (somatorio)
+
+                        moduloResultante = math.sqrt((somatorio[0]**2)+\
+                                (somatorio[1]**2)+(somatorio[2]**2))
+
                         print ("Módulo da força:")
-                        print (math.sqrt(moduloFinal))
+                        print(moduloResultante)
+
+                        """
+                                Plota o vetor resultante das forças
+                        """
                         self.matplotlibPlot.ax.plot(\
                                 [self.X[i], self.X[i]+somatorio[0]],\
                                 [self.Y[i], self.Y[i]+somatorio[1]],\
                                 [self.Z[i], self.Z[i]+somatorio[2]], 'g', linewidth=2)
 
+                        """
+                                Plota os valores das forças resultantes
+                        """
                         self.matplotlibPlot.ax.text(\
                                 (self.X[i]+somatorio[0]+self.matplotlibPlot.xDistance),\
                                 (self.Y[i]+somatorio[1]+self.matplotlibPlot.yDistance),\
                                 (self.Z[i]+somatorio[2]+self.matplotlibPlot.zDistance),\
-                                ("%f N" %(moduloFinal)))
+                                ("%f N" %(moduloResultante)))
 
                 self.matplotlibPlot.canvas.draw()
