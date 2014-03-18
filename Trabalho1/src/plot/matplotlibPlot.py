@@ -36,11 +36,11 @@ class MatplotlibPlot(object):
 
                 self.ax = self.fig.add_subplot(111, projection='3d')
 
-                self.ax.set_xlabel('X')
-                self.ax.set_ylabel('Y')
-                self.ax.set_zlabel('Z')
+                self.ax.set_xlabel('X(m)')
+                self.ax.set_ylabel('Y(m)')
+                self.ax.set_zlabel('Z(m)')
 
-        def plotCharge(self, x, y, z, charge=False, forca=False):
+        def plotCharge(self, x, y, z, charge=False):
                 # Plot the charges
                 for i in range (len(x)):
                         self.ax.scatter(x[i], y[i], z[i], c='b',\
@@ -59,11 +59,6 @@ class MatplotlibPlot(object):
                                         y[i]+self.yDistance, \
                                         z[i]+self.zDistance, \
                                         str(charge[i])+'uC')
-                        if forca:
-                                self.ax.text(x[i]-2*self.xDistance,\
-                                        y[i]-2*self.yDistance, \
-                                        z[i]-2*self.zDistance, \
-                                        "%f N" %(forca[i]))
                 self.canvas.draw()
 
         def plotAxis(self):

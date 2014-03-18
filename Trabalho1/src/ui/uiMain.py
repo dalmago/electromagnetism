@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'uiMain.ui'
 #
-# Created: Mon Mar 17 09:07:33 2014
+# Created: Mon Mar 17 19:17:42 2014
 #      by: PyQt4 UI code generator 4.10.3
 #
 # WARNING! All changes made in this file will be lost!
@@ -46,7 +46,7 @@ class Ui_MainWindow(object):
         self.doubleSpinBoxX = QtGui.QDoubleSpinBox(self.centralwidget)
         self.doubleSpinBoxX.setDecimals(3)
         self.doubleSpinBoxX.setMinimum(-99.99)
-        self.doubleSpinBoxX.setSingleStep(0.1)
+        self.doubleSpinBoxX.setSingleStep(0.01)
         self.doubleSpinBoxX.setObjectName(_fromUtf8("doubleSpinBoxX"))
         self.horizontalLayout_3.addWidget(self.doubleSpinBoxX)
         self.verticalLayout.addLayout(self.horizontalLayout_3)
@@ -58,7 +58,7 @@ class Ui_MainWindow(object):
         self.doubleSpinBoxY = QtGui.QDoubleSpinBox(self.centralwidget)
         self.doubleSpinBoxY.setDecimals(3)
         self.doubleSpinBoxY.setMinimum(-99.99)
-        self.doubleSpinBoxY.setSingleStep(0.1)
+        self.doubleSpinBoxY.setSingleStep(0.01)
         self.doubleSpinBoxY.setObjectName(_fromUtf8("doubleSpinBoxY"))
         self.horizontalLayout_2.addWidget(self.doubleSpinBoxY)
         self.verticalLayout.addLayout(self.horizontalLayout_2)
@@ -70,7 +70,7 @@ class Ui_MainWindow(object):
         self.doubleSpinBoxZ = QtGui.QDoubleSpinBox(self.centralwidget)
         self.doubleSpinBoxZ.setDecimals(3)
         self.doubleSpinBoxZ.setMinimum(-99.99)
-        self.doubleSpinBoxZ.setSingleStep(0.1)
+        self.doubleSpinBoxZ.setSingleStep(0.01)
         self.doubleSpinBoxZ.setObjectName(_fromUtf8("doubleSpinBoxZ"))
         self.horizontalLayout.addWidget(self.doubleSpinBoxZ)
         self.verticalLayout.addLayout(self.horizontalLayout)
@@ -83,7 +83,7 @@ class Ui_MainWindow(object):
         self.doubleSpinBoxForce = QtGui.QDoubleSpinBox(self.centralwidget)
         self.doubleSpinBoxForce.setDecimals(3)
         self.doubleSpinBoxForce.setMinimum(-99.99)
-        self.doubleSpinBoxForce.setSingleStep(0.1)
+        self.doubleSpinBoxForce.setSingleStep(1.0)
         self.doubleSpinBoxForce.setObjectName(_fromUtf8("doubleSpinBoxForce"))
         self.verticalLayout_2.addWidget(self.doubleSpinBoxForce)
         spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
