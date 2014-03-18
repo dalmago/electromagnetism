@@ -26,20 +26,25 @@ class ActionsPlot(object):
 
                 self.k0= 9*10**9
 
-                #self.X = [0.4, 0]
-                #self.Y = [-0.3, 0.5]
-                #self.Z = [0.6, 0.24]
-                #self.cargas = [4, 9]
+                self.X = [0.4, 0]
+                self.Y = [-0.3, 0.5]
+                self.Z = [0.6, 0.24]
+                self.cargas = [4, 9]
+
+                #self.X = [0.4, 0, 0.2]
+                #self.Y = [-0.3, 0.5, 0.2]
+                #self.Z = [0.6, 0.24, 0.1]
+                #self.cargas = [4, 9, 2]
 
                 #self.X = [0, 0.4, 0, 0.4]
                 #self.Y = [0.3, 0.3, 0, 0]
                 #self.Z = [0, 0, 0, 0]
                 #self.cargas = [-10, 5, 12, -3]
 
-                self.X = []
-                self.Y = []
-                self.Z = []
-                self.cargas = []
+                #self.X = []
+                #self.Y = []
+                #self.Z = []
+                #self.cargas = []
 
         def connectSlots(self):
                 QtCore.QObject.connect(self.uiMain.pushButtonOk, QtCore.SIGNAL("clicked()"), self.addCharge)
@@ -119,4 +124,3 @@ class ActionsPlot(object):
                                 ("%f N" %(moduloFinal)))
 
                 self.matplotlibPlot.canvas.draw()
-
