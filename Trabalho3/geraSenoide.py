@@ -2,6 +2,12 @@
 # -*- coding: utf-8 -*-
 # vim:fenc=utf-8
 #
+#"THE BEER-WARE LICENSE" (Revision 42):
+#
+#<matheusdalmago10@hotmail.com> wrote this file. As long as you retain this
+#notice you can do whatever you want with this stuff. If we meet some day,
+#and you think this stuff is worth it, you can buy me a beer in return.
+#
 #Created: 2014-05-28
 #       by: Matheus Dal Mago
 #
@@ -23,4 +29,3 @@ plt.xlabel('t [s]')
 plt.ylabel('Tensao [V]')
 plt.axhline(color='black')
 
-plt.show()
