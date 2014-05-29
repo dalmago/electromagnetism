@@ -11,6 +11,7 @@
 #Created: 2014-05-28
 #       by: Matheus Dal Mago
 #
+# Generate a voltage sinusoidal wave with frequency=60Hz and amplitude=5V
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -29,3 +30,4 @@ plt.xlabel('t [s]')
 plt.ylabel('Tensao [V]')
 plt.axhline(color='black')
 
+plt.show()
