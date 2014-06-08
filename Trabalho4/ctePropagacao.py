@@ -16,7 +16,10 @@
     Fazer simulaçẽos para cálculo de γ, λ, α, β, velocidade...
 """
 
-import numpy as np
+try:
+    import numpy as np
+except ImportError:
+    print ('É preciso instalar a biblioteca numpy')
 
 print ('Digite os valores solicitados:')
 

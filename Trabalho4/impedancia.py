@@ -16,7 +16,10 @@
     Calcular Z0 para diversos valores de R', C', G', L' e f.
 """
 
-import numpy as np
+try:
+    import numpy as np
+except ImportError:
+    print ('É preciso instalar a biblioteca numpy')
 
 print ('Digite os valores solicitados:')
 
