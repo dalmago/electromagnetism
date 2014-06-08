@@ -48,3 +48,6 @@ print ('Velocidade de propagação = ' + str(v) + ' [m/s]')
 print ('Fração da velocidade da luz: ' + str(fracao))
 print ('Impedância Z\' = ' + str(Z) + ' [Ω/m]')
 print ('Admitância Y\' = ' + str(Y) + ' [S/m]')
+
+print ('\n V=V0.e^(-{alfa}z).cos({omega}t-{beta}z+phi)'.format(alfa=str(alfa),\
+        omega=str(omega), beta=str(beta)))
