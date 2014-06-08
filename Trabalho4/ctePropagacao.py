@@ -51,3 +51,5 @@ print ('Admitância Y\' = ' + str(Y) + ' [S/m]')
 
 print ('\n V=V0.e^(-{alfa}z).cos({omega}t-{beta}z+phi)'.format(alfa=str(alfa),\
         omega=str(omega), beta=str(beta)))
+
+print ('\n Forma fasorial: Ṽs = V0.e^(-{gama}z)'.format(gama=str(gama)))
