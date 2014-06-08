@@ -47,11 +47,11 @@ else:
     d = float(input('Distância entre os condutores [mm]: '))
 
     R = (1000/a)*np.sqrt(f*mu0/sigmaC)
-    L = (mu0/np.pi)*np.arccosh(d/2a)
-    G = np.pi*sigmaD/np.arccosh(d/2a)
-    C = np.pi*epsilon0*epsilonR/arccosh(d/2a)
+    L = (mu0/np.pi)*np.arccosh(d/(2*a))
+    G = np.pi*sigmaD/np.arccosh(d/(2*a))
+    C = np.pi*epsilon0*epsilonR/np.arccosh(d/(2*a))
 
-print ('Resistência do condutor (R\') [Ω/m] = %f' % R)
+print ('\n\nResistência do condutor (R\') [Ω/m] = %f' % R)
 print ('Indutância série (L\') [H/m] = %f' % L)
 print ('Condutância do dielétrico (G\') [S/m] = %f' % G)
 print ('Capacitância (C\') [F/m] = %f' % C)
