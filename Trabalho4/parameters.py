@@ -51,7 +51,7 @@ else:
     G = np.pi*sigmaD/np.arccosh(d/(2*a))
     C = np.pi*epsilon0*epsilonR/np.arccosh(d/(2*a))
 
-print ('\n\nResistência do condutor (R\') [Ω/m] = %f' % R)
-print ('Indutância série (L\') [H/m] = %f' % L)
-print ('Condutância do dielétrico (G\') [S/m] = %f' % G)
-print ('Capacitância (C\') [F/m] = %f' % C)
+print ('\n\nResistência do condutor (R\') [Ω/m] = %.13f' % R)
+print ('Indutância série (L\') [H/m] = %.13f' % L)
+print ('Condutância do dielétrico (G\') [S/m] = %.13f' % G)
+print ('Capacitância (C\') [F/m] = %.13f' % C)
